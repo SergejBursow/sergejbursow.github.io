@@ -518,8 +518,10 @@ section {
 /* Портфолио */
 .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
 }
 
 .portfolio-item {
@@ -531,6 +533,9 @@ section {
     border: 1px solid rgba(255, 255, 255, 0.1);
     position: relative;
     overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 
 .portfolio-item::before {
@@ -567,22 +572,91 @@ section {
 .portfolio-item p {
     color: var(--text-gray);
     margin-bottom: 1rem;
+    flex-grow: 1;
 }
 
-.portfolio-link {
+/* Общие стили для всех кнопок в портфолио */
+.portfolio-item .portfolio-link {
     color: var(--primary-color);
     text-decoration: none;
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 0.5rem;
+    margin-top: auto;
+    padding: 10px 20px;                    /* Внутренние отступы */
+    border: 2px solid var(--primary-color); /* Зеленая рамка */
+    border-radius: 25px;                    /* Скругленные углы */
+    transition: all 0.3s ease;
+    font-weight: 500;
 }
 
-.portfolio-link i {
+.portfolio-item .portfolio-link i {
     transition: transform 0.3s;
 }
 
-.portfolio-link:hover i {
+.portfolio-item .portfolio-link:hover {
+    background: var(--gradient);            /* Градиент при наведении */
+    color: var(--bg-dark);                   /* Темный текст */
+    border-color: transparent;               /* Прозрачная рамка */
+    transform: translateY(-3px);              /* Поднимается вверх */
+    box-shadow: 0 5px 15px rgba(0, 255, 136, 0.3);
+}
+
+.portfolio-item .portfolio-link:hover i {
     transform: translateX(5px);
+}
+
+/* Стили для блока сертификатов */
+.portfolio-item:last-child {
+    display: flex;
+    flex-direction: column;
+}
+
+.certificate-links {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 15px;
+    width: 100%;
+    flex-grow: 1;
+}
+
+/* Специальные стили для кнопок сертификатов */
+.certificate-links .portfolio-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid var(--primary-color);  /* Такая же зеленая рамка */
+    border-radius: 25px;
+    width: 100%;
+    margin-top: 0;
+    color: var(--primary-color);
+}
+
+.certificate-links .portfolio-link:hover {
+    background: var(--gradient);
+    color: var(--bg-dark);
+    border-color: transparent;
+    transform: translateX(5px);
+}
+
+/* Для мобильных устройств */
+@media screen and (max-width: 768px) {
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+        max-width: 100%;
+    }
+    
+    .portfolio-item .portfolio-link {
+        padding: 8px 16px;
+    }
+    
+    .certificate-links .portfolio-link {
+        padding: 10px 15px;
+    }
 }
 
 /* Образование */
