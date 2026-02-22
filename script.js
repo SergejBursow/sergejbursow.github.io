@@ -31,7 +31,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // Печатающийся текст
 const typingText = document.querySelector('.typing-text');
-const words = ['QA Engineer', 'Software Tester', 'API Tester', 'Manual Tester'];
+const words = ['QA Engineer', 'MaestroFlow', 'API Tester', 'Manual Tester'];
 let wordIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
