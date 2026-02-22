@@ -529,7 +529,7 @@ section {
     padding: 2rem;
     border-radius: 15px;
     text-align: center;
-    transition: all 0.3s;
+    transition: transform 0.3s, box-shadow 0.3s; /* Убрали лишние transition */
     border: 1px solid rgba(255, 255, 255, 0.1);
     position: relative;
     overflow: hidden;
@@ -548,6 +548,7 @@ section {
     background: var(--gradient);
     opacity: 0.1;
     transition: left 0.3s;
+    pointer-events: none; /* Важно: псевдоэлемент не перехватывает клики */
 }
 
 .portfolio-item:hover::before {
@@ -563,16 +564,19 @@ section {
     font-size: 3rem;
     margin-bottom: 1rem;
     color: var(--primary-color);
+    pointer-events: none; /* Иконка не перехватывает клики */
 }
 
 .portfolio-item h3 {
     margin-bottom: 0.5rem;
+    pointer-events: none; /* Заголовок не перехватывает клики */
 }
 
 .portfolio-item p {
     color: var(--text-gray);
     margin-bottom: 1rem;
     flex-grow: 1;
+    pointer-events: none; /* Текст не перехватывает клики */
 }
 
 /* Общие стили для всех кнопок в портфолио */
@@ -584,11 +588,14 @@ section {
     justify-content: center;
     gap: 0.5rem;
     margin-top: auto;
-    padding: 10px 20px;                    /* Внутренние отступы */
-    border: 2px solid var(--primary-color); /* Зеленая рамка */
-    border-radius: 25px;                    /* Скругленные углы */
+    padding: 10px 20px;
+    border: 2px solid var(--primary-color);
+    border-radius: 25px;
     transition: all 0.3s ease;
     font-weight: 500;
+    cursor: pointer; /* Явно указываем курсор-указатель */
+    position: relative; /* Для правильного наложения */
+    z-index: 10; /* Кнопка выше других элементов */
 }
 
 .portfolio-item .portfolio-link i {
@@ -596,10 +603,10 @@ section {
 }
 
 .portfolio-item .portfolio-link:hover {
-    background: var(--gradient);            /* Градиент при наведении */
-    color: var(--bg-dark);                   /* Темный текст */
-    border-color: transparent;               /* Прозрачная рамка */
-    transform: translateY(-3px);              /* Поднимается вверх */
+    background: var(--gradient);
+    color: var(--bg-dark);
+    border-color: transparent;
+    transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(0, 255, 136, 0.3);
 }
 
@@ -622,18 +629,20 @@ section {
     flex-grow: 1;
 }
 
-/* Специальные стили для кнопок сертификатов */
 .certificate-links .portfolio-link {
     display: inline-flex;
     align-items: center;
     justify-content: space-between;
     padding: 12px 20px;
     background: rgba(255, 255, 255, 0.05);
-    border: 2px solid var(--primary-color);  /* Такая же зеленая рамка */
+    border: 2px solid var(--primary-color);
     border-radius: 25px;
     width: 100%;
     margin-top: 0;
     color: var(--primary-color);
+    cursor: pointer;
+    position: relative;
+    z-index: 10;
 }
 
 .certificate-links .portfolio-link:hover {
