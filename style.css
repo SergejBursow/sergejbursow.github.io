@@ -746,6 +746,21 @@ a.contact-item {
     color: inherit;
 }
 
+a.contact-item:visited,
+a.contact-item:active,
+a.contact-item:hover {
+    color: var(--text-light);
+}
+
+.contact-item h3,
+.contact-item p {
+    color: var(--text-light);
+}
+
+.contact-item p {
+    opacity: 0.85;
+}
+
 .contact-item:hover {
     transform: translateX(10px);
     border-color: var(--primary-color);
