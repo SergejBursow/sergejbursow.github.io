@@ -269,6 +269,18 @@ body {
     color: var(--bg-dark);
 }
 
+.btn.ghost {
+    background: rgba(255, 255, 255, 0.04);
+    color: var(--text-light);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn.ghost:hover {
+    transform: translateY(-3px);
+    border-color: var(--secondary-color);
+    box-shadow: 0 10px 20px rgba(0, 119, 255, 0.25);
+}
+
 .hero-image {
     position: relative;
     height: 400px;
@@ -727,6 +739,11 @@ section {
     border-radius: 15px;
     transition: all 0.3s;
     border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+a.contact-item {
+    text-decoration: none;
+    color: inherit;
 }
 
 .contact-item:hover {
